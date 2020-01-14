@@ -35,17 +35,17 @@ server.onopen = (ev) => {
             default:
                 console.log("Got message with unknown type: " + messageObject)
         }
-    
 
+    }
     // Now, this is a good place to set event listeners for client actions.
     // For example:
     var handShakeButton = document.getElementById("handshake-button");
 
-    handShakeButton.onclick = () => {
+    handShakeButton.addEventListener("click", () => {
         // send some message maybe?
-        var handshakePayload = "Hi im Joe";    
+        var handshakePayload = "Hi im Joe";
         server.send(serializeSocketMessage("handshake", handshakePayload));
-        }   
-    }
+
+    })
     // write on...
 }
