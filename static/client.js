@@ -18,8 +18,8 @@ server.onopen = (ev) => {
     // let's first listen for messages sent by the server
 
     server.onmessage = (message) => {
-        // this is a copy/paste from the server
 
+        // this is a copy/paste from the server
         var messageObject = JSON.parse(message.data);
         let { type, payload } = messageObject;
 

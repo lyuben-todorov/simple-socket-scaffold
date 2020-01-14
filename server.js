@@ -44,12 +44,13 @@ function serializeSocketMessage(type, payload) {
 var connectedPlayerCount = 0;
 
 // this function is called everytime a new client connects
-// this is a good place to define user-specific variables such as
-// name, player color?
 wss.on("connection", (socket, request) => {
+    // this is a good place to define user-specific variables such as
+    // name, player color?
 
 
     connectedPlayerCount++;
+    
     console.log("Client connected; Total player count: " + connectedPlayerCount);
 
     // this function is called every time that particular client sends a message
@@ -82,7 +83,7 @@ wss.on("connection", (socket, request) => {
                 // communication® protocol™ (the mutual agreement between our 
                 // server.js and client.js to send serialized json objects
                 // with properties type and payload) we call the function
-                // serializeSocketMessage(type, payload).
+                // serializeSocketMessage(type, payload) which returns exactly that.
                 // remember types don't exist here so payload could be anything including
                 // objects, arrays, strings, numbers, whatever
                 socket.send(serializeSocketMessage("handshakeReply", "Who's Joe?"))
